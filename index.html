@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魁省夺魁教学机构| Centre d'éducation de nouveau modellus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* 主内容区 */
+        .hero {
+            background: linear-gradient(rgba(33, 116, 199, 0.9), rgba(44, 62, 80, 0.9)),
+                url('math-bg.jpg') center/cover;
+            color: white;
+            padding: 160px 5% 100px;
+            text-align: center;
+        }
+
+        /* 特色课程 */
+        .features {
+            padding: 4rem 5%;
+            background: #f9f9f9;
+        }
+
+        /* 师资团队 */
+        .teachers {
+            padding: 4rem 5%;
+            background: #fff;
+        }
+
+        /* 学生成果 */
+        .achievements {
+            background: hsl(210, 62%, 51%);
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        /* 家长评价 */
+        .testimonials {
+            padding: 4rem 5%;
+            background: #f9f9f9;
+        }
+
+        /* 常见问题 */
+        .faq {
+            padding: 4rem 5%;
+        }
+
+        /* 联系表单 */
+        .contact {
+            background: hsl(210, 62%, 51%);
+            color: white;
+            padding: 4rem 5%;
+        }
+
+        /* 通用样式 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 具体模块样式 */
+        /* 师资团队 */
+        .teacher-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .teacher-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .teacher-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        /* 学生成果 */
+        .stats-grid {
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        /* 家长评价 */
+        .testimonial-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: #eee;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        /* 联系表单 */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                padding: 120px 5% 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+    <div class="nav-content">
+      <div class="logo" data-i18n="logo">魁省夺魁教学机构</div>
+      <div class="nav-links">
+        <a href="#courses" data-i18n="nav-courses">课程介绍</a>
+        <a href="#teachers" data-i18n="nav-teachers">教师团队</a>
+        <a href="#programs" data-i18n="nav-results">课程公告</a>
+        <a href="#contact" data-i18n="nav-contact">联系方式</a>
+        <a href="#" id="toggle-lang" style="font-weight: bold;">EN</a>
+      </div>
+    </div>
+  </nav>
+
+    <!-- 主横幅 -->
+    <section class="hero">
+        <h1 data-i18n="hero-title">机构简介</h1>
+        <p data-i18n="hero-desc-1" style="margin: 30px 0;">
+          魁省夺魁教学机构致力于为小学、初中、高中及大学预科学生提供高质量的小班授课与个性化私教辅导。</p>
+        <p data-i18n="hero-desc-2" style="margin: 30px 0;">
+          我们的课程涵盖多个核心学科，并针对各类考试提供系统培训，帮助学生在学术道路上全面提升、脱颖而出。
+        </p>
+      </section>
+
+    <!-- 课程特色 -->
+    
+    <section class="features" id="courses">
+        <div class="features-item" data-i18n="features-1">多学科辅导：法语（语法、词汇、听写、阅读、写作）、数学、逻辑、英语、历史、科学等</div>
+        <div class="features-item" data-i18n="features-2">入学及插班考试培训：笔试、机考、面试、演讲全方位准备</div>
+        <div class="features-item" data-i18n="features-3">零基础及欢迎班学生：个性化定制课程，夯实基础，系统提升</div>
+        <div class="features-item" data-i18n="features-4">中考及省考冲刺：百日刷题，精准聚焦考点，助力高分突破</div>
+        <div class="features-item" data-i18n="features-5">小班授课：课堂深入细致，师生高效互动，确保教学质量</div>
+      </section>
+    <!-- 师资团队 -->
+    <section class="teachers" id="teachers">
+        <h2 class="section-title" data-i18n="teachers-title">资深师资团队，助力学业成功</h2>
+        <h4 class="section-desc" data-i18n="teachers-desc">魁省夺魁教学机构由经验丰富、资历深厚的专业教师团队领衔，涵盖不同学科领域：</h4>
+        <div class="grid teacher-grid">
+            <div class="card teacher-card">
+                <!-- <img src="teacher1.jpg" alt="Dr. Smith" class="teacher-photo"> -->
+                <h3 data-i18n="teacher-1-name">范老师</h3>
+                <p data-i18n="teacher-1-desc">法语教学权威，北京外国语大学法语文学学士，法国名校经济学硕士，政府资深官员</p>
+            </div>
+            <!-- 更多教师卡片 -->
+            <div class="card teacher-card">
+                <!-- <img src="teacher1.jpg" alt="Dr. Smith" class="teacher-photo"> -->
+                <h3 data-i18n="teacher-2-name">拉菲尔老师</h3>
+                <p data-i18n="teacher-2-desc">McGill大学法律系毕业，精通法语/英语双语教学</p>
+
+            </div>
+            <!-- 更多教师卡片 -->
+            <div class="card teacher-card">
+                <!-- <img src="teacher1.jpg" alt="Dr. Smith" class="teacher-photo"> -->
+                <h3 data-i18n="teacher-3-name">布沙尔老师</h3>
+                <p data-i18n="teacher-3-desc">专业中学科学教师，30年教学经验，擅长启发式教学</p>
+
+            </div>
+
+            <!-- 更多教师卡片 -->
+            <div class="card teacher-card">
+                <!-- <img src="teacher1.jpg" alt="Dr. Smith" class="teacher-photo"> -->
+                <h3 data-i18n="teacher-4-name">凯莉老师</h3>
+                <p data-i18n="teacher-4-desc">高中英语/历史专家，多伦多大学教育学毕业，教学方式生动高效</p>
+
+            </div>
+            <!-- 更多教师卡片 -->
+            <div class="card teacher-card">
+                <!-- <img src="teacher1.jpg" alt="Dr. Smith" class="teacher-photo"> -->
+                <h3 data-i18n="teacher-5-title">还有更多经验丰富的教师团队</h3>
+                <p data-i18n="teacher-5-desc-1">涵盖各学科领域，为学生提供全方位的专业指导</p>
+                <p data-i18n="teacher-5-desc-2">凭借雄厚的师资力量、丰富的教学经验和广泛的课程覆盖，魁省夺魁教学机构致力于为每位学生提供卓越的教育支持，帮助他们在学业道路上勇夺魁首</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学生成果 -->
+    <section class="achievements" id="results">
+        <div class="grid stats-grid">
+         
+            <div class="stat-item">
+                <div class="stat-number" style="width: 1300px;">90% success on admission for top 3 high schools (Collège Jean-Breuf, Collège Jean-Eudes, Collège St-Louis)</div>
+            </div>
+            <!-- 更多统计数据 -->
+        </div>
+    </section>
+
+    <!-- 公告 -->
+    <section class="testimonials" id="programs">
+        <h2 class="section-title" data-i18n="summer2025-title">2025暑假课程公告</h2>
+        <div class="grid testimonial-grid">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <h4 data-i18n="program-1-title">中一法语辅导班</h4>
+            <p><strong data-i18n="program-time-label">时间：</strong><span data-i18n="program-1-time">每周二晚 7:00 - 9:00</span></p>
+            <ul>
+              <li data-i18n="program-1-1">核心语法系统讲解（七大词组、句型结构）</li>
+              <li data-i18n="program-1-2">小说精读训练，培养批判性思维</li>
+              <li data-i18n="program-1-3">世界名著节选精读 + 教纲题型训练</li>
+              <li data-i18n="program-1-4">描述文与叙述文扩展写作训练</li>
+            </ul>
+          </div>
+      
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <h4 data-i18n="program-2-title">中二法语精英班</h4>
+            <p><strong data-i18n="program-time-label">时间：</strong><span data-i18n="program-2-time">每周六上午 10:30 - 12:30</span></p>
+            <ul>
+              <li data-i18n="program-2-1">世界名著深度阅读 + 省考模拟练习</li>
+              <li data-i18n="program-2-2">省考写作强化（描述文 & 证明文）</li>
+              <li data-i18n="program-2-3">侦探小说专题训练（拓展词汇与细节挖掘）</li>
+              <li data-i18n="program-2-4">重点语法难点系统讲解</li>
+            </ul>
+          </div>
+      
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <h4 data-i18n="program-3-title">中四法语强化班</h4>
+            <p><strong data-i18n="program-time-label">时间：</strong><span data-i18n="program-3-time">每周五晚 7:00 - 9:00</span></p>
+            <ul>
+              <li data-i18n="program-3-1">戏剧体文学赏析与剧本创作</li>
+              <li data-i18n="program-3-2">Nouvelle 文体阅读与写作</li>
+              <li data-i18n="program-3-3">议论文结构与写作训练</li>
+              <li data-i18n="program-3-4">语法难点梳理与精讲</li>
+            </ul>
+          </div>
+      
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <h4 data-i18n="program-4-title">小学四年级语文 + 数学提升班</h4>
+            <p><strong data-i18n="program-time-label">时间：</strong><span data-i18n="program-4-time">周六 12:30 - 14:30 或 周二晚 5:00 - 7:00</span></p>
+            <ul>
+              <li data-i18n="program-4-1">阅读理解：叙述文 & 应用文（省考题型解析）</li>
+              <li data-i18n="program-4-2">写作专项：写作框架 + 分部训练 + 批改点评</li>
+              <li data-i18n="program-4-3">语法：结合校内进度，系统理解与训练</li>
+              <li data-i18n="program-4-4">数学：大型综合题解析与解题技巧训练</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section class="testimonials">
+        <h2 class="section-title" data-i18n="new-course-announcement">新课程招生通告</h2>
+        <div class="grid testimonial-grid">
+          <div class="testimonial-card">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <h4 data-i18n="oral-class-title">法语口语（演讲）听力班</h4>
+      
+            <p><strong data-i18n="oral-teacher-label">授课教师：</strong></p>
+            <p data-i18n="oral-teacher-desc">
+              法裔西人老师，36岁，语言天才，掌握8门语言，性格活泼，擅长激发学生的交流欲望，课堂互动极其活跃，深受学生喜爱！
+            </p>
+      
+            <p><strong data-i18n="oral-schedule-label">课程时间：</strong></p>
+            <p data-i18n="oral-schedule">周五晚 6:00 - 7:30（中级班）</p>
+      
+            <p data-i18n="oral-class-size">小班制：3人成班，4人封班，确保高质量互动</p>
+      
+            <p><strong data-i18n="oral-suitable-label">适合人群：</strong></p>
+            <ul>
+              <li data-i18n="oral-suitable-1">拓展演讲思路</li>
+              <li data-i18n="oral-suitable-2">提升词汇层次</li>
+              <li data-i18n="oral-suitable-3">强化即时表达与整合能力</li>
+            </ul>
+      
+            <p><strong data-i18n="oral-structure-label">课程设置（每节课90分钟）：</strong></p>
+            <ul>
+              <li data-i18n="oral-structure-1">生活口语对话（30分钟）——实用场景训练，增强表达自信</li>
+              <li data-i18n="oral-structure-2">教学听力速记（30分钟）——精准捕捉关键信息，提高听力反应力</li>
+              <li data-i18n="oral-structure-3">主题演讲拓展（30分钟）——逻辑组织+思维整合，提升表达层次</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="teachers" id="teachers">
+        <h2 class="section-title" data-i18n="student-showcase-title">学生风采 & 作品展示</h2>
+        <h4 class="section-desc" data-i18n="student-showcase-desc">敬请关注我们的优秀学生风采墙，见证学员的成长与突破！</h4>
+      
+        <div class="grid teacher-grid">
+      
+          <!-- Tracy -->
+          <div class="testimonial-card">
+            <h4 data-i18n="student-tracy-title">🎉 喜报 · 中四 | Tracy</h4>
+            <p><strong data-i18n="student-tracy-fr-read-label">法语阅读：</strong><span data-i18n="student-tracy-fr-read">99（班级平均：83）🏆</span></p>
+            <p><strong data-i18n="student-tracy-fr-write-label">法语写作：</strong><span data-i18n="student-tracy-fr-write">90（班级平均：84）💪</span></p>
+            <p><strong data-i18n="student-tracy-fr-grammar-label">法语语法：</strong><span data-i18n="student-tracy-fr-grammar">99（班级平均：92）💥</span></p>
+            <p data-i18n="student-tracy-comment">中四期末成绩是申请 CEGEP 的重要依据，法语成绩权重最高！Tracy 同学在高级班中持续领先，归功于她坚持不懈的努力与认真上课。期待她在中五取得更大突破！</p>
+          </div>
+      
+          <!-- Hanzhong -->
+          <div class="testimonial-card">
+            <h4 data-i18n="student-hz-title">🎉 喜报 · 六年级 | Hanzhong</h4>
+            <p><strong data-i18n="student-hz-fr1-label">省考阅读 #1：</strong><span data-i18n="student-hz-fr1">100 💥</span></p>
+            <p><strong data-i18n="student-hz-fr2-label">省考阅读 #2：</strong><span data-i18n="student-hz-fr2">100 💥</span></p>
+            <p><strong data-i18n="student-hz-math1-label">数学 C1：</strong><span data-i18n="student-hz-math1">100 💥</span></p>
+            <p><strong data-i18n="student-hz-math2-label">数学 C2：</strong><span data-i18n="student-hz-math2">100 💥</span></p>
+            <p data-i18n="student-hz-comment">Hanzhong 同学从刚入班时的基础薄弱、习惯稚嫩，到现在成绩斐然，是成长与坚持的最佳典范！老师为你的进步感到骄傲！</p>
+          </div>
+      
+          <!-- Celeste & Richard -->
+          <div class="testimonial-card">
+            <h4 data-i18n="student-cr-title">🎉 喜报 · 四年级 | Celeste & Richard</h4>
+            <p><strong data-i18n="student-celeste-label">Celeste - 省考写作：</strong><span data-i18n="student-celeste-score">100 🥇</span></p>
+            <p><strong data-i18n="student-richard-label">Richard - 省考写作：</strong><span data-i18n="student-richard-score">90 🎉</span></p>
+            <p data-i18n="student-cr-comment">Celeste 同学热情活跃，作业认真，课堂表现优秀，未来可期！Richard 小朋友从粗心大意到渐入佳境，已经逐步养成良好的学习习惯，希望再接再厉！</p>
+          </div>
+      
+        </div>
+      </section>
+
+
+    <!-- 义工招聘 -->
+    <section class="faq">
+        <h2 class="section-title" data-i18n="volunteer-job-title">义工 & 工作招聘</h2>
+        <div class="grid">
+          <div class="faq-item">
+            <h3 data-i18n="volunteer-position-title">现有2个义工名额，招募中学生（需会法语）</h3>
+      
+            <p><strong data-i18n="volunteer-time-label">时间：</strong></p>
+            <p data-i18n="volunteer-time">每周一晚上，共6次，每次1.5小时</p>
+      
+            <p><strong data-i18n="volunteer-task-label">工作内容：</strong></p>
+            <ul>
+              <li data-i18n="volunteer-task-1">· 文件数据化整理</li>
+              <li data-i18n="volunteer-task-2">· 编辑样题，批改作业</li>
+              <li data-i18n="volunteer-task-3">· 指导小朋友完成基础法语练习</li>
+            </ul>
+      
+            <p><strong data-i18n="volunteer-benefits-label">福利：</strong></p>
+            <ul>
+              <li data-i18n="volunteer-benefits-1">· 义工证明</li>
+              <li data-i18n="volunteer-benefits-2">· 工作推荐信（Reference）</li>
+            </ul>
+      
+            <p><strong data-i18n="volunteer-contact-label">联系方式：</strong> <span data-i18n="volunteer-contact">有意者请联系！</span></p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="teachers" id="teachers">
+        <h2 class="section-title" data-i18n="student-showcase-title">学生风采 & 作品展示</h2>
+        <h4 class="section-desc" data-i18n="student-showcase-desc">
+          敬请关注我们的优秀学生风采墙，见证学员的成长与突破！
+        </h4>
+        <div class="grid teacher-grid">
+          <!-- 可添加展示卡片内容 -->
+        </div>
+      </section>
+
+
+    <!-- 文章推荐 -->
+    <section class="teachers" id="teachers-articles">
+        <h2 class="section-title" data-i18n="article-recommend-title">精选文章推荐</h2>
+        <h4 class="section-desc" data-i18n="article-recommend-desc">公众号精选内容：</h4>
+        <div class="card teacher-card">
+            <h3>
+              <a href="https://mp.weixin.qq.com/s/CDe2M6HYt8TaMNdk7vPnfg" target="_blank" data-i18n="article-title">
+                《魁省2024中学排名大揭秘》
+              </a>
+            </h3>
+            <p data-i18n="article-follow-text">欢迎关注，获取更多精彩内容！</p>
+          </div>
+      </section>
+
+
+    <!-- 联系表单 -->
+    <section class="contact" id="contact">
+        <div class="contact-form">
+          <h2 class="section-title" data-i18n="contact-title">联系方式</h2>
+          <form>
+            <div class="form-group" data-i18n="contact-phone">电话：514-655-7984</div>
+            <div class="form-group" data-i18n="contact-wechat">微信：（请扫码添加）</div>
+            <div class="form-group">
+              <img src="./images/ewm.png" alt="wechat" style="width: 160px;height: 160px;">
+            </div>
+          </form>
+        </div>
+      </section>
+
+    <script>
+        // 交互功能
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const section = document.querySelector(link.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // FAQ交互
+        document.querySelectorAll('.faq-item h3').forEach(question => {
+            question.addEventListener('click', () => {
+                question.nextElementSibling.classList.toggle('active');
+            });
+        });
+        
+        //语言转换
+
+        const translations = {
+            zh: {
+                "logo": "魁省夺魁教学机构",
+                "nav-courses": "课程介绍",
+                "nav-teachers": "教师团队",
+                "nav-results": "课程公告",
+                "nav-contact": "联系方式",
+                "hero-title": "魁省夺魁教学机构简介",
+                "hero-desc-1": "魁省夺魁教学机构致力于为小学、初中、高中及大学预科学生提供高质量的小班授课与个性化私教辅导。",
+                "hero-desc-2": "我们的课程涵盖多个核心学科，并针对各类考试提供系统培训，帮助学生在学术道路上全面提升、脱颖而出。",
+                "features-1": "多学科辅导：法语（语法、词汇、听写、阅读、写作）、数学、逻辑、英语、历史、科学等",
+                "features-2": "入学及插班考试培训：笔试、机考、面试、演讲全方位准备",
+                "features-3": "零基础及欢迎班学生：个性化定制课程，夯实基础，系统提升",
+                "features-4": "中考及省考冲刺：百日刷题，精准聚焦考点，助力高分突破",
+                "features-5": "小班授课：课堂深入细致，师生高效互动，确保教学质量",
+                "contact-title": "联系方式",
+                "contact-phone": "电话：514-655-7984",
+                "contact-wechat": "微信：（请扫码添加）",
+
+                "teacher-title": "资深师资团队，助力学业成功",
+                "teacher-desc": "魁省夺魁教学机构由经验丰富、资历深厚的专业教师团队领衔，涵盖不同学科领域：",
+
+                "summer2025-title": "2025暑假课程公告",
+                "program-1-title": "中一法语辅导班",
+                "program-1-time": "每周二晚 7:00 - 9:00",
+                "program-1-1": "核心语法系统讲解（七大词组、句型结构）",
+                "program-1-2": "小说精读训练，培养批判性思维",
+                "program-1-3": "世界名著节选精读 + 教纲题型训练",
+                "program-1-4": "描述文与叙述文扩展写作训练",
+
+                "program-2-title": "中二法语精英班",
+                "program-2-time": "每周六上午 10:30 - 12:30",
+                "program-2-1": "世界名著深度阅读 + 省考模拟练习",
+                "program-2-2": "省考写作强化（描述文 & 证明文）",
+                "program-2-3": "侦探小说专题训练（拓展词汇与细节挖掘）",
+                "program-2-4": "重点语法难点系统讲解",
+
+                "program-3-title": "中四法语强化班",
+                "program-3-time": "每周五晚 7:00 - 9:00",
+                "program-3-1": "戏剧体文学赏析与剧本创作",
+                "program-3-2": "Nouvelle 文体阅读与写作",
+                "program-3-3": "议论文结构与写作训练",
+                "program-3-4": "语法难点梳理与精讲",
+
+                "program-4-title": "小学四年级语文 + 数学提升班",
+                "program-4-time": "周六 12:30 - 14:30 或 周二晚 5:00 - 7:00",
+                "program-4-1": "阅读理解：叙述文 & 应用文（省考题型解析）",
+                "program-4-2": "写作专项：写作框架 + 分部训练 + 批改点评",
+                "program-4-3": "语法：结合校内进度，系统理解与训练",
+                "program-4-4": "数学：大型综合题解析与解题技巧训练",
+                "program-time-label": "时间：",
+
+                "new-course-announcement": "新课程招生通告",
+                "oral-class-title": "法语口语（演讲）听力班",
+                "oral-teacher-label": "授课教师：",
+                "oral-teacher-desc": "法裔西人老师，36岁，语言天才，掌握8门语言，性格活泼，擅长激发学生的交流欲望，课堂互动极其活跃，深受学生喜爱！",
+                "oral-schedule-label": "课程时间：",
+                "oral-schedule": "周五晚 6:00 - 7:30（中级班）",
+                "oral-class-size": "小班制：3人成班，4人封班，确保高质量互动",
+                "oral-suitable-label": "适合人群：",
+                "oral-suitable-1": "拓展演讲思路",
+                "oral-suitable-2": "提升词汇层次",
+                "oral-suitable-3": "强化即时表达与整合能力",
+                "oral-structure-label": "课程设置（每节课90分钟）：",
+                "oral-structure-1": "生活口语对话（30分钟）——实用场景训练，增强表达自信",
+                "oral-structure-2": "教学听力速记（30分钟）——精准捕捉关键信息，提高听力反应力",
+                "oral-structure-3": "主题演讲拓展（30分钟）——逻辑组织+思维整合，提升表达层次",
+
+                "student-showcase-title": "学生风采 & 作品展示",
+                "student-showcase-desc": "敬请关注我们的优秀学生风采墙，见证学员的成长与突破！",
+
+                "student-tracy-title": "🎉 喜报 · 中四 | Tracy",
+                "student-tracy-fr-read-label": "法语阅读：",
+                "student-tracy-fr-read": "99（班级平均：83）🏆",
+                "student-tracy-fr-write-label": "法语写作：",
+                "student-tracy-fr-write": "90（班级平均：84）💪",
+                "student-tracy-fr-grammar-label": "法语语法：",
+                "student-tracy-fr-grammar": "99（班级平均：92）💥",
+                "student-tracy-comment": "中四期末成绩是申请 CEGEP 的重要依据，法语成绩权重最高！Tracy 同学在高级班中持续领先，归功于她坚持不懈的努力与认真上课。期待她在中五取得更大突破！",
+
+                "student-hz-title": "🎉 喜报 · 六年级 | Hanzhong",
+                "student-hz-fr1-label": "省考阅读 #1：",
+                "student-hz-fr1": "100 💥",
+                "student-hz-fr2-label": "省考阅读 #2：",
+                "student-hz-fr2": "100 💥",
+                "student-hz-math1-label": "数学 C1：",
+                "student-hz-math1": "100 💥",
+                "student-hz-math2-label": "数学 C2：",
+                "student-hz-math2": "100 💥",
+                "student-hz-comment": "Hanzhong 同学从刚入班时的基础薄弱、习惯稚嫩，到现在成绩斐然，是成长与坚持的最佳典范！老师为你的进步感到骄傲！",
+
+                "student-cr-title": "🎉 喜报 · 四年级 | Celeste & Richard",
+                "student-celeste-label": "Celeste - 省考写作：",
+                "student-celeste-score": "100 🥇",
+                "student-richard-label": "Richard - 省考写作：",
+                "student-richard-score": "90 🎉",
+                "student-cr-comment": "Celeste 同学热情活跃，作业认真，课堂表现优秀，未来可期！Richard 小朋友从粗心大意到渐入佳境，已经逐步养成良好的学习习惯，希望再接再厉！",
+                // Volunteer & Jobs
+                
+                "volunteer-job-title": "义工 & 工作招聘",
+                "volunteer-position-title": "现有2个义工名额，招募中学生（需会法语）",
+                "volunteer-time-label": "时间：",
+                "volunteer-time": "每周一晚上，共6次，每次1.5小时",
+                "volunteer-task-label": "工作内容：",
+                "volunteer-task-1": "· 文件数据化整理",
+                "volunteer-task-2": "· 编辑样题，批改作业",
+                "volunteer-task-3": "· 指导小朋友完成基础法语练习",
+                "volunteer-benefits-label": "福利：",
+                "volunteer-benefits-1": "· 义工证明",
+                "volunteer-benefits-2": "· 工作推荐信（Reference）",
+                "volunteer-contact-label": "联系方式：",
+                "volunteer-contact": "有意者请联系！",
+
+                "student-showcase-title": "学生风采 & 作品展示",
+                "student-showcase-desc": "敬请关注我们的优秀学生风采墙，见证学员的成长与突破！",
+
+                // Article Recommendation
+                "article-recommend-title": "精选文章推荐",
+                "article-recommend-desc": "公众号精选内容：",
+                "article-title": "《魁省2024中学排名大揭秘》",
+                "article-follow-text": "欢迎关注，获取更多精彩内容！"
+                
+        },
+        en: {
+            "logo": "Centre d'éducation de nouveau modellus",
+            "nav-courses": "Courses",
+            "nav-teachers": "Teachers",
+            "nav-results": "programs",
+            "nav-contact": "Contact",
+            "hero-title": "Introduction to Our Academic Centre",
+            "hero-desc-1": "We are committed to providing high-quality small-group and 1-on-1 tutoring for elementary, secondary, and pre-university students. ",
+            "hero-desc-2" : "Our programs cover multiple core subjects and exam training to help students excel academically.",
+            "features-1": "Multidisciplinary Tutoring: French (grammar, vocabulary, dictation, reading, writing), Math, Logic, English, History, Science, etc.",
+            "features-2": "Entrance and Transfer Exam Prep: Written tests, digital tests, interviews, and presentations",
+            "features-3": "Beginner Welcome Courses: Personalized curriculum to build strong foundations",
+            "features-4": "Exam Sprint Camp: 100-day drilling with focus on key areas",
+            "features-5": "Small-Class Teaching: In-depth learning with efficient teacher-student interaction",
+            "contact-title": "Contact Us",
+            "contact-phone": "Phone: 514-655-7984",
+            "contact-wechat": "WeChat: (Scan QR code to add)",
+            "teachers-title": "Expert Teaching Team Supporting Academic Success",
+            "teachers-desc": "Our institution is led by a team of experienced, highly qualified educators covering a wide range of subjects.",
+            "teacher-1-name": "Ms. Fan",
+            "teacher-1-desc": "Authority in French teaching, Bachelor's in French Literature from BFSU, Master's in Economics from a top French university, senior government official.",
+            "teacher-2-name": "Mr. Raphaël",
+            "teacher-2-desc": "Graduated from McGill University in Law, fluent in bilingual French/English instruction.",
+            "teacher-3-name": "Mr. Bouchard",
+            "teacher-3-desc": "Professional high school science teacher with 30 years of experience, skilled in heuristic teaching.",
+            "teacher-4-name": "Ms. Kelly",
+            "teacher-4-desc": "Expert in high school English and History, graduate of the University of Toronto Faculty of Education, engaging and effective teaching style.",
+            "teacher-5-title": "More Experienced Teachers",
+            "teacher-5-desc-1": "Covering all subject areas to provide comprehensive academic support.",
+            "teacher-5-desc-2": "With a strong faculty, rich teaching experience, and a wide curriculum, our center is committed to helping every student excel academically.",
+            "summer2025-title": "2025 Summer Course Announcement",
+            "program-1-title": "Sec 1 French Tutoring Class",
+            "program-1-time": "  Every Tuesday 7:00 - 9:00 PM",
+            "program-1-1": "Core grammar explanation (7 phrases, sentence structures)",
+            "program-1-2": "Intensive novel reading to build critical thinking",
+            "program-1-3": "Selected classics + exam-style exercises",
+            "program-1-4": "Expanded writing for descriptive and narrative texts",
+
+            "program-2-title": "Sec 2 French Elite Class",
+            "program-2-time": "  Every Saturday 10:30 AM - 12:30 PM",
+            "program-2-1": "In-depth reading of world literature + exam simulations",
+            "program-2-2": "Writing reinforcement (descriptive & argumentative essays)",
+            "program-2-3": "Detective fiction special training (vocabulary and details)",
+            "program-2-4": "Grammar focus and system review",
+
+            "program-3-title": "Sec 4 French Intensive Class",
+            "program-3-time": "  Every Friday 7:00 - 9:00 PM",
+            "program-3-1": "Drama literature appreciation and script writing",
+            "program-3-2": "Nouvelle style reading and writing",
+            "program-3-3": "Argumentative writing structure and training",
+            "program-3-4": "Review and intensive explanation of grammar difficulties",
+
+            "program-4-title": "Grade 4 Chinese + Math Enhancement",
+            "program-4-time": "  Every Saturday 12:30 - 2:30 PM or    Tuesday 5:00 - 7:00 PM",
+            "program-4-1": "Reading comprehension: narrative & practical texts (exam-focused)",
+            "program-4-2": "Writing specialization: framework, breakdown practice & feedback",
+            "program-4-3": "Grammar: integrated with school curriculum",
+            "program-4-4": "Math: complex problem solving and techniques training",
+
+            "program-time-label": "Time:",
+            "new-course-announcement": "New Course Enrollment Notice",
+            "oral-class-title": "French Speaking & Listening Class",
+            "oral-teacher-label": "Instructor:",
+            "oral-teacher-desc": "A 36-year-old French-Canadian teacher and language prodigy fluent in 8 languages. Energetic and engaging, she excels at encouraging student interaction and is deeply loved by her students.",
+            "oral-schedule-label": "Schedule:",
+            "oral-schedule": "Friday 6:00 PM - 7:30 PM (Intermediate Level)",
+            "oral-class-size": "Small Class: 3 students to open, 4 students maximum to ensure high interaction",
+            "oral-suitable-label": "For students who:",
+            "oral-suitable-1": "To expand public speaking ideas",
+            "oral-suitable-2": "To enrich vocabulary",
+            "oral-suitable-3": "To enhance spontaneous expression and structuring skills",
+            "oral-structure-label": "Course Structure (90 minutes per session):",
+            "oral-structure-1": "Practical dialogues (30 min) – real-life scenes to boost speaking confidence",
+            "oral-structure-2": "Listening and note-taking (30 min) – sharpen your listening for key info",
+            "oral-structure-3": "Thematic public speaking (30 min) – organize thoughts and improve clarity",
+
+            "student-showcase-title": "Student Showcase & Highlights",
+            "student-showcase-desc": "Check out our student spotlight wall and witness growth and achievement!",
+            
+            "student-tracy-title": "🎉 Honor Roll · Grade 10 | Tracy",
+            "student-tracy-fr-read-label": "French Reading:",
+            "student-tracy-fr-read": "99 (Class Avg: 83) 🏆",
+            "student-tracy-fr-write-label": "French Writing:",
+            "student-tracy-fr-write": "90 (Class Avg: 84) 💪",
+            "student-tracy-fr-grammar-label": "French Grammar:",
+            "student-tracy-fr-grammar": "99 (Class Avg: 92) 💥",
+            "student-tracy-comment": "Final results in Grade 10 are key for CEGEP applications, and French holds the highest weight! Tracy has stayed ahead in the advanced class thanks to her consistent effort and focus. Looking forward to her excellence in Grade 11!",
+
+            "student-hz-title": "🎉 Honor Roll · Grade 6 | Hanzhong",
+            "student-hz-fr1-label": "Provincial Reading #1:",
+            "student-hz-fr1": "100 💥",
+            "student-hz-fr2-label": "Provincial Reading #2:",
+            "student-hz-fr2": "100 💥",
+            "student-hz-math1-label": "Math C1:",
+            "student-hz-math1": "100 💥",
+            "student-hz-math2-label": "Math C2:",
+            "student-hz-math2": "100 💥",
+            "student-hz-comment": "Hanzhong started with weak foundations and immature habits. Now, with hard work and steady progress, his results shine! We're so proud of your growth!",
+
+            "student-cr-title": "🎉 Honor Roll · Grade 4 | Celeste & Richard",
+            "student-celeste-label": "Celeste – Writing Exam:",
+            "student-celeste-score": "100 🥇",
+            "student-richard-label": "Richard – Writing Exam:",
+            "student-richard-score": "90 🎉",
+            "student-cr-comment": "Celeste is enthusiastic and diligent, performing exceptionally in class. Richard has improved remarkably, building better study habits—keep it up!",
+
+            // Volunteer & Jobs
+            "volunteer-job-title": "Volunteering & Job Opportunities",
+            "volunteer-position-title": "2 Volunteer Positions Available – Recruiting High School Students (French Required)",
+            "volunteer-time-label": "Schedule:",
+            "volunteer-time": "Monday evenings, 6 sessions total, 1.5 hours each",
+            "volunteer-task-label": "Responsibilities:",
+            "volunteer-task-1": "· Digitizing documents",
+            "volunteer-task-2": "· Editing sample exercises, grading assignments",
+            "volunteer-task-3": "· Helping younger students with basic French exercises",
+            "volunteer-benefits-label": "Benefits:",
+            "volunteer-benefits-1": "· Volunteer certificate",
+            "volunteer-benefits-2": "· Reference letter",
+            "volunteer-contact-label": "Contact:",
+            "volunteer-contact": "Please reach out if interested!",
+
+
+            "student-showcase-title": "Student Highlights & Project Showcase",
+            "student-showcase-desc": "Stay tuned for our student spotlight wall and witness their growth and breakthroughs!",
+        
+            // Article Recommendation
+            "article-recommend-title": "Recommended Articles",
+            "article-recommend-desc": "Highlights from our WeChat official account:",
+            "article-title": "Quebec 2024 High School Rankings Revealed:",
+            "article-follow-text": "Follow us for more great content!"
+            }
+        };
+        let currentLang = 'zh';
+
+        function updateLang() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang] && translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key];
+            }
+        });
+        document.getElementById('toggle-lang').textContent = currentLang === 'zh' ? 'EN' : '中';
+        document.documentElement.lang = currentLang;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.getElementById('toggle-lang');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLang();
+            });
+        }
+        updateLang();
+        });
+    </script>
+
+
+</body>
+
+</html>
