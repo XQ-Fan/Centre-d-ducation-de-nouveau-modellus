@@ -6,24 +6,12 @@
     margin-bottom: 30px;
 }
 
-.stats-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+.achievements {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.stat-item {
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: left;
-  font-size: 1rem;
+.achievements p {
+  font-size: 1.1rem;
   line-height: 1.6;
-}
-
-.stat-number {
-  width: 100%;
-  max-width: 100%;
-  word-break: break-word;
 }
